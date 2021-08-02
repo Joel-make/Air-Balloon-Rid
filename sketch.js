@@ -11,7 +11,7 @@ function preload(){
    balloonImage2=loadAnimation("HotAirBallon01.png","HotAirBallon01.png",
    "HotAirBallon01.png","HotAirBallon02.png","HotAirBallon02.png",
    "HotAirBallon02.png","HotAirBallon03.png","HotAirBallon03.png","HotAirBallon03.png");
-   theme=loadSound("theme.m4a")
+   //theme=loadSound("theme.m4a")
   }
 
 //Function to set initial environment
@@ -85,7 +85,7 @@ if(gameState===0)
   if(keyWentDown("Space"))
 {
   gameState=1;
-  theme.play();
+  //theme.play();
   
 }
 }
