@@ -4,12 +4,14 @@ var height;
 var gameState=0;
 var PLAY=0;
 var END=1;
+
 function preload(){
    bg =loadImage("cityImage.png");
    balloonImage1=loadAnimation("HotAirBallon01.png");
    balloonImage2=loadAnimation("HotAirBallon01.png","HotAirBallon01.png",
    "HotAirBallon01.png","HotAirBallon02.png","HotAirBallon02.png",
    "HotAirBallon02.png","HotAirBallon03.png","HotAirBallon03.png","HotAirBallon03.png");
+   theme=loadSound("theme.m4a")
   }
 
 //Function to set initial environment
@@ -25,7 +27,7 @@ function setup() {
 
   var balloonHeight=database.ref('balloon/height');
   balloonHeight.on("value",readHeight, showError);
-
+  
 
 
   textSize(20); 
@@ -61,8 +63,11 @@ if(gameState===1)
   textSize(25);
   text("**Use arrow keys to move Hot Air Balloon!",40,40);
 }
+
+
 if(gameState===0)
 {
+  
   push();
   fill(0);
   strokeWeight(3);
@@ -78,12 +83,14 @@ if(gameState===0)
   textSize(50);
   text("Press SPACE key to play",500,450);
   if(keyWentDown("Space"))
-  {
-    gameState=1;
-  }
+{
+  gameState=1;
+  theme.play();
+  
 }
 }
 
+}
 //CHOOSE THE CORRECT UPDATEHEIGHT FUNCTION
 // function updateHeight(x,y){
 //   database.ref('balloon/height').set({
